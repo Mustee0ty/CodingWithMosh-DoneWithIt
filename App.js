@@ -11,7 +11,7 @@ export default function App() {
     justifyContent: "center", // main axis aka horizontal axis
     alignItems: "center", // secondary axis aka vertical axis in a single line
     alignContent: "center", // Determines the alignment of items in the whole page aka the whole content, very important when using wrap
-    flexWrap: "wrap",
+    // flexWrap: "wrap",
    }}
   >
    <View
@@ -26,25 +26,14 @@ export default function App() {
      backgroundColor: "gold",
      width: 100,
      height: 100,
+     position: "relative",
+     left: 20,
+     top: 20,
     }}
    />
    <View
     style={{
      backgroundColor: "tomato",
-     width: 100,
-     height: 100,
-    }}
-   />
-   <View
-    style={{
-     backgroundColor: "grey",
-     width: 100,
-     height: 100,
-    }}
-   />
-   <View
-    style={{
-     backgroundColor: "greenyellow",
      width: 100,
      height: 100,
     }}
