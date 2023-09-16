@@ -1,5 +1,6 @@
 import { View, Text, SafeAreaView, StyleSheet } from "react-native"
 import React from "react"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 // import WelcomeScreen from "./app/screens/WelcomeScreen"
 // import ViewImageScreen from "./app/screens/ViewImageScreen"
@@ -15,7 +16,8 @@ export default function App() {
      alignItems: "center",
     }}
    >
-    <AppText>I love react-native!</AppText>
+    {/* <MaterialCommunityIcons color="dodgerblue" name="email" size={100} /> */}
+    <AppText>I love React Native!</AppText>
    </View>
   </SafeAreaView>
  )
