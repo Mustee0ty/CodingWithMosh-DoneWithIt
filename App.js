@@ -1,42 +1,30 @@
-import { View, Text, SafeAreaView } from "react-native"
+import { View, Text, SafeAreaView, StyleSheet } from "react-native"
 import React from "react"
+
 // import WelcomeScreen from "./app/screens/WelcomeScreen"
 // import ViewImageScreen from "./app/screens/ViewImageScreen"
+import AppText from "./app/components/AppText"
 
 export default function App() {
  return (
-  <SafeAreaView>
+  <SafeAreaView style={styles.container}>
    <View
     style={{
+     flex: 1,
      justifyContent: "center",
-     alignSelf: "center",
-     backgroundColor: "dodgerblue",
-     width: 100,
-     height: 100,
-     elevation: 60,
-     paddingLeft: 40,
-     marginBottom: 10,
+     alignItems: "center",
     }}
    >
-    <View
-     style={{
-      backgroundColor: "gold",
-      height: 50,
-      width: 50,
-     }}
-    ></View>
+    <AppText>I love react-native!</AppText>
    </View>
-   <View
-    style={{
-     justifyContent: "center",
-     alignSelf: "center",
-     backgroundColor: "red",
-     width: 100,
-     height: 100,
-     elevation: 60,
-     paddingLeft: 40,
-    }}
-   ></View>
   </SafeAreaView>
  )
 }
+
+const styles = StyleSheet.create({
+ container: {
+  flex: 1,
+  alignItems: "center",
+  justifyContent: "center",
+ },
+})
