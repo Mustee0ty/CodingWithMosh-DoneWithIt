@@ -1,16 +1,8 @@
-import { View, Text, StyleSheet } from "react-native"
+import { Text } from "react-native"
 import React from "react"
 
-import colors from "../config/colors"
+import defaultStyles from "../config/styles"
 
 export default function AppText({ children, style }) {
- return <Text style={[styles.text, style]}>{children}</Text>
+ return <Text style={[defaultStyles.text, style]}>{children}</Text>
 }
-
-const styles = StyleSheet.create({
- text: {
-  fontSize: 17,
-  fontWeight: "500",
-  color: colors.black,
- },
-})
