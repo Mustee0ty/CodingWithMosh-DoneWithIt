@@ -5,7 +5,7 @@ import React from "react"
 export default function Screen({ children, style }) {
  return (
   <SafeAreaView style={[styles.container, style]}>
-   <View>{children}</View>
+   <View style={style}>{children}</View>
   </SafeAreaView>
  )
 }
