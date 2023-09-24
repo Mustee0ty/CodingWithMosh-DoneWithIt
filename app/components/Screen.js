@@ -13,5 +13,6 @@ export default function Screen({ children }) {
 const styles = StyleSheet.create({
  container: {
   paddingTop: Constants.statusBarHeight,
+  flex: 1,
  },
 })

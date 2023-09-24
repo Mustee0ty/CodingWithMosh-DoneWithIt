@@ -22,6 +22,7 @@ const initialMessages = [
 
 export default function MessagesScreen() {
  const [messages, setMessages] = useState(initialMessages)
+ const [refreshing, setRefreshing] = useState(false)
 
  const handleDelete = (messageId) => {
   // Use the functional form of setMessages to avoid issues
@@ -47,6 +48,17 @@ export default function MessagesScreen() {
      />
     )}
     ItemSeparatorComponent={ListItemSeparator}
+    refreshing={refreshing}
+    onRefresh={() =>
+     setMessages([
+      {
+       id: 2,
+       title: "T2",
+       description: "D2",
+       image: require("../assets/profilePic.jpg"),
+      },
+     ])
+    }
    />
   </Screen>
  )
