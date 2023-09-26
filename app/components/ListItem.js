@@ -1,24 +1,14 @@
-import {
- View,
- StyleSheet,
- Image,
- TouchableOpacity,
- TouchableHighlight,
-} from "react-native"
-import React from "react"
-
-// Import Component
-import AppText from "./AppText"
+import { View, StyleSheet, Image, TouchableHighlight } from "react-native"
+import { MaterialCommunityIcons } from "@expo/vector-icons"
 
 // import Swipeable
-import {
- PanGestureHandler,
- GestureHandlerRootView,
-} from "react-native-gesture-handler"
+import { GestureHandlerRootView } from "react-native-gesture-handler"
 import Swipeable from "react-native-gesture-handler/Swipeable"
 
+// import component
+import AppText from "./AppText"
+// import component
 import colors from "../config/colors"
-// import { PanGesture } from "react-native-gesture-handler/lib/typescript/handlers/gestures/panGesture"
 
 export default function ListItem({
  title,
@@ -36,9 +26,20 @@ export default function ListItem({
       {IconComponent}
       {image && <Image style={styles.image} source={image} />}
       <View style={styles.detailsContainer}>
-       <AppText style={styles.title}>{title}</AppText>
-       {subTitle && <AppText style={styles.subtitle}>{subTitle}</AppText>}
+       <AppText style={styles.title} numberOfLines={1}>
+        {title}
+       </AppText>
+       {subTitle && (
+        <AppText style={styles.subtitle} numberOfLines={2}>
+         {subTitle}
+        </AppText>
+       )}
       </View>
+      <MaterialCommunityIcons
+       name="chevron-right"
+       color={colors.medium}
+       size={25}
+      />
      </View>
     </TouchableHighlight>
    </Swipeable>
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   padding: 15,
   backgroundColor: colors.white,
+  alignItems: "center",
  },
  image: {
   width: 70,
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
   borderRadius: 35,
  },
  detailsContainer: {
+  flex: 1,
   marginLeft: 10,
   justifyContent: "center",
  },
