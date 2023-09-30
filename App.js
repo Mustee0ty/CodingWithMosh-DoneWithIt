@@ -1,9 +1,10 @@
 import React from "react"
+
 import MessagesScreen from "./app/screens/MessagesScreen"
-import ListingEditScreen from "./app/screens/ListingEditScreen"
+import AccountScreen from "./app/screens/AccountScreen"
 
 function App() {
- return <ListingEditScreen />
+ return <AccountScreen />
 }
 
 export default App

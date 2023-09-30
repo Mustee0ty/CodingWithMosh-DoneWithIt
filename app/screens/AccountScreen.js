@@ -38,7 +38,7 @@ function AccountScreen(props) {
     <FlatList
      data={menuItems}
      keyExtractor={(menuItems) => menuItems.title}
-     ItemSepratorComponent={ListItemSperatorComponent}
+     ItemSeparatorComponent={ListItemSperatorComponent}
      renderItem={({ item }) => (
       <ListItem
        title={item.title}
