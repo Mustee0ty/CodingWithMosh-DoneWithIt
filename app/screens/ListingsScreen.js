@@ -17,7 +17,7 @@ const Listings = [
   id: 2,
   title: "Sniper in great condition",
   price: 1000,
-  image: require("../assets/SAO.jpg"),
+  image: require("../assets/Jacket.jpeg"),
  },
 ]
 
