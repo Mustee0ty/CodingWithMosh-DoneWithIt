@@ -6,7 +6,7 @@ import Screen from "./app/components/Screen"
 import { Button, Image, FlatList, View } from "react-native"
 
 function App() {
- const [images, setImages] = useState([])
+ const [imageUri, setImageUri] = useState([])
 
  const requestMediaLibraryPermission = async () => {
   const { status } = await MediaLibrary.requestPermissionsAsync()
@@ -21,22 +21,16 @@ function App() {
 
  const selectImage = async () => {
   const mediaAssets = await MediaLibrary.getAssetsAsync({ mediaType: "photo" })
-  setImages(mediaAssets.assets)
+  setImageUri(mediaAssets.assets)
  }
 
  return (
   <Screen>
    <Button title="Select Image" onPress={selectImage} />
-   {/* <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} /> */}
-   <FlatList
-    data={images}
-    keyExtractor={(item) => item.id}
-    renderItem={({ item }) => (
-     <View>
-      <Image source={{ uri: item.uri }} style={{ width: 200, height: 200 }} />
-     </View>
-    )}
-   ></FlatList>
+   <Image
+    source={{ uri: setImageUri.uri }}
+    style={{ width: 200, height: 200 }}
+   />
   </Screen>
  )
 }
