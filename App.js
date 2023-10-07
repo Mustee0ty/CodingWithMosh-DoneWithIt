@@ -5,34 +5,29 @@ import * as Permissions from "expo-permissions"
 
 import Screen from "./app/components/Screen"
 import { Button, Image, FlatList, View } from "react-native"
+import ImageInput from "./app/components/ImageInput"
+import ImageInputList from "./app/components/ImageInputList"
 
 function App() {
- const [imageUri, setImageUri] = useState()
+ const [imageUris, setImageUris] = useState([])
 
- const requestPermission = async () => {
-  const { granted } = await ImagePicker.requestCameraPermissionsAsync()
-  if (!granted) {
-   console.log("Permission to access library denied")
-  }
+ //  Add Image
+ const handleAdd = (uri) => {
+  setImageUris([...imageUris, uri])
  }
 
- useEffect(() => {
-  requestPermission()
- }, [])
-
- const selectImage = async () => {
-  try {
-   const result = await ImagePicker.launchImageLibraryAsync()
-   if (!result.canceled) setImageUri(result.uri)
-  } catch (error) {
-   console.log("Error reading an image")
-  }
+ //  Remove Image
+ const handleRemove = (uri) => {
+  setImageUris(imageUris.filter((imageUri) => imageUri !== uri))
  }
 
  return (
   <Screen>
-   <Button title="Select Image" onPress={selectImage} />
-   <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
+   <ImageInputList
+    imageUris={imageUris}
+    onAddmage={handleAdd}
+    onRemoveImage={(uri) => handleRemove(uri)}
+   />
   </Screen>
  )
 }
