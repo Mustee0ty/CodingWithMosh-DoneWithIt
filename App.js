@@ -4,13 +4,15 @@ import Screen from "./app/components/Screen"
 
 import { NavigationContainer, useNavigation } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import Test from "./app/components/Test"
 
 const Link = () => {
  const navigation = useNavigation()
  return (
   <Button
    title="Click"
-   onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
+   onPress={() => navigation.navigate("Account", { id: 1 })}
   />
  )
 }
@@ -28,27 +30,41 @@ const TweetDetails = ({ route }) => (
  </Screen>
 )
 
-const Stack = createStackNavigator()
-const StackNavigator = () => (
- <Stack.Navigator
-  screenOptions={{
-   headerStyle: { backgroundColor: "dodgerblue" },
-   headerTintColor: "white",
-  }}
- >
-  <Stack.Screen name="Tweets" component={Tweets} />
-  <Stack.Screen
-   name="TweetDetails"
-   component={TweetDetails}
-   options={({ route }) => ({ title: route.params.id })}
-  />
- </Stack.Navigator>
+// const Stack = createStackNavigator()
+// const StackNavigator = () => (
+//  <Stack.Navigator
+//   screenOptions={{
+//    headerStyle: { backgroundColor: "dodgerblue" },
+//    headerTintColor: "white",
+//   }}
+//  >
+//   <Stack.Screen name="Tweets" component={Tweets} />
+//   <Stack.Screen
+//    name="TweetDetails"
+//    component={TweetDetails}
+//    options={({ route }) => ({ title: route.params.id })}
+//   />
+//  </Stack.Navigator>
+// )
+
+const Account = () => (
+ <Screen>
+  <Text>Account</Text>
+ </Screen>
+)
+
+const Tab = createBottomTabNavigator()
+const TabNavigator = () => (
+ <Tab.Navigator>
+  <Tab.Screen name="Feed" component={Tweets} />
+  <Tab.Screen name="Account" component={Account} />
+ </Tab.Navigator>
 )
 
 export default function App() {
  return (
   <NavigationContainer>
-   <StackNavigator />
+   <TabNavigator />
   </NavigationContainer>
  )
 }
