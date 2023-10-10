@@ -2,11 +2,16 @@ import React from "react"
 import { Text, Button } from "react-native"
 import Screen from "./app/components/Screen"
 
+import ListingsScreen from "./app/screens/ListingsScreen"
+import ListingEditScreen from "./app/screens/ListingEditScreen"
+import AccountScreen from "./app/screens/AccountScreen"
+
 import { NavigationContainer, useNavigation } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Test from "./app/components/Test"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"
 
 const Link = () => {
  const navigation = useNavigation()
@@ -39,10 +44,10 @@ const StackNavigator = () => (
    headerTintColor: "white",
   }}
  >
-  <Stack.Screen name="Tweets" component={Tweets} />
+  <Stack.Screen name="Tweets" component={ListingsScreen} />
   <Stack.Screen
    name="TweetDetails"
-   component={TweetDetails}
+   component={ListingDetailsScreen}
    options={({ route }) => ({ title: route.params.id })}
   />
  </Stack.Navigator>
@@ -65,14 +70,16 @@ const TabNavigator = () => (
  >
   <Tab.Screen
    name="Feed"
-   component={StackNavigator}
+   component={ListingsScreen}
    options={{
     tabBarIcon: ({ size, color }) => (
      <MaterialCommunityIcons name="home" size={size} color={color} />
     ),
    }}
   />
-  <Tab.Screen name="Account" component={Account} />
+  <Tab.Screen name="Add" component={ListingEditScreen} />
+
+  <Tab.Screen name="Account" component={AccountScreen} />
  </Tab.Navigator>
 )
 
