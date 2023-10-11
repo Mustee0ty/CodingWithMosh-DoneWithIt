@@ -12,6 +12,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Test from "./app/components/Test"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"
+import AuthNavigator from "./app/navigation/AuthNavigator"
 
 const Link = () => {
  const navigation = useNavigation()
@@ -86,7 +87,7 @@ const TabNavigator = () => (
 export default function App() {
  return (
   <NavigationContainer>
-   <TabNavigator />
+   <AuthNavigator />
   </NavigationContainer>
  )
 }
