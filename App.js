@@ -15,6 +15,7 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"
 import AuthNavigator from "./app/navigation/AuthNavigator"
 import navigationTheme from "./app/navigation/navigationTheme"
 import AppNavigator from "./app/navigation/AppNavigator"
+import AcccountNavigator from "./app/navigation/AccountNavigator"
 
 const Link = () => {
  const navigation = useNavigation()
@@ -89,7 +90,7 @@ const TabNavigator = () => (
 export default function App() {
  return (
   <NavigationContainer theme={navigationTheme}>
-   <AppNavigator />
+   <AcccountNavigator />
   </NavigationContainer>
  )
 }
