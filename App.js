@@ -13,6 +13,7 @@ import Test from "./app/components/Test"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen"
 import AuthNavigator from "./app/navigation/AuthNavigator"
+import navigationTheme from "./app/navigation/navigationTheme"
 
 const Link = () => {
  const navigation = useNavigation()
@@ -86,7 +87,7 @@ const TabNavigator = () => (
 
 export default function App() {
  return (
-  <NavigationContainer>
+  <NavigationContainer theme={navigationTheme}>
    <AuthNavigator />
   </NavigationContainer>
  )
