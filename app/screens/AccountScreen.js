@@ -49,7 +49,7 @@ function AccountScreen({ navigation }) {
          backgroundColor={item.icon.backgroundColor}
         />
        }
-       onPress={() => navigation.navigate("item.targetScreen")}
+       onPress={() => navigation.navigate(item.targetScreen)}
       />
      )}
     />
